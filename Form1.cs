@@ -16,5 +16,14 @@ namespace student_app
         {
             InitializeComponent();
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            if(textBoxUsername.Text=="admin1" && textBoxPassword.Text=="12345")
+            {
+                new Dashboard().Show();
+            }
+            else { MessageBox.Show("Chek your data","Error",MessageBoxButtons.OK,MessageBoxIcon.Warning); }
+        }
     }
 }
