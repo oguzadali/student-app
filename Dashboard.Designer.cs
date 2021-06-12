@@ -32,7 +32,7 @@ namespace student_app
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStudents = new System.Windows.Forms.TabPage();
             this.tabPageNewstudent = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxStudent = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,10 +43,10 @@ namespace student_app
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxNumber = new System.Windows.Forms.TextBox();
             this.buttonSavestudent = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxClass = new System.Windows.Forms.ComboBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageStudents.SuspendLayout();
@@ -72,7 +72,7 @@ namespace student_app
             this.tabPageStudents.Controls.Add(this.label3);
             this.tabPageStudents.Controls.Add(this.label2);
             this.tabPageStudents.Controls.Add(this.label1);
-            this.tabPageStudents.Controls.Add(this.listBox1);
+            this.tabPageStudents.Controls.Add(this.listBoxStudent);
             this.tabPageStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPageStudents.Location = new System.Drawing.Point(4, 25);
             this.tabPageStudents.Name = "tabPageStudents";
@@ -84,10 +84,10 @@ namespace student_app
             // 
             // tabPageNewstudent
             // 
-            this.tabPageNewstudent.Controls.Add(this.comboBox1);
+            this.tabPageNewstudent.Controls.Add(this.comboBoxClass);
             this.tabPageNewstudent.Controls.Add(this.label6);
-            this.tabPageNewstudent.Controls.Add(this.textBox2);
-            this.tabPageNewstudent.Controls.Add(this.textBox1);
+            this.tabPageNewstudent.Controls.Add(this.textBoxNumber);
+            this.tabPageNewstudent.Controls.Add(this.textBoxName);
             this.tabPageNewstudent.Controls.Add(this.label4);
             this.tabPageNewstudent.Controls.Add(this.label5);
             this.tabPageNewstudent.Controls.Add(this.buttonClear);
@@ -101,14 +101,14 @@ namespace student_app
             this.tabPageNewstudent.Text = "New Student";
             this.tabPageNewstudent.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // listBoxStudent
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(-4, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(248, 429);
-            this.listBox1.TabIndex = 0;
+            this.listBoxStudent.FormattingEnabled = true;
+            this.listBoxStudent.ItemHeight = 25;
+            this.listBoxStudent.Location = new System.Drawing.Point(-4, 0);
+            this.listBoxStudent.Name = "listBoxStudent";
+            this.listBoxStudent.Size = new System.Drawing.Size(248, 429);
+            this.listBoxStudent.TabIndex = 0;
             // 
             // label1
             // 
@@ -200,19 +200,19 @@ namespace student_app
             this.label6.TabIndex = 0;
             this.label6.Text = "Class";
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(323, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 30);
-            this.textBox1.TabIndex = 1;
+            this.textBoxName.Location = new System.Drawing.Point(323, 51);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(217, 30);
+            this.textBoxName.TabIndex = 1;
             // 
-            // textBox2
+            // textBoxNumber
             // 
-            this.textBox2.Location = new System.Drawing.Point(323, 99);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 30);
-            this.textBox2.TabIndex = 1;
+            this.textBoxNumber.Location = new System.Drawing.Point(323, 99);
+            this.textBoxNumber.Name = "textBoxNumber";
+            this.textBoxNumber.Size = new System.Drawing.Size(217, 30);
+            this.textBoxNumber.TabIndex = 1;
             // 
             // buttonSavestudent
             // 
@@ -222,14 +222,15 @@ namespace student_app
             this.buttonSavestudent.TabIndex = 2;
             this.buttonSavestudent.Text = "Save";
             this.buttonSavestudent.UseVisualStyleBackColor = true;
+            this.buttonSavestudent.Click += new System.EventHandler(this.buttonSavestudent_Click);
             // 
-            // comboBox1
+            // comboBoxClass
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(323, 146);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 33);
-            this.comboBox1.TabIndex = 3;
+            this.comboBoxClass.FormattingEnabled = true;
+            this.comboBoxClass.Location = new System.Drawing.Point(323, 146);
+            this.comboBoxClass.Name = "comboBoxClass";
+            this.comboBoxClass.Size = new System.Drawing.Size(217, 33);
+            this.comboBoxClass.TabIndex = 3;
             // 
             // buttonClear
             // 
@@ -270,11 +271,11 @@ namespace student_app
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox listBoxStudent;
+        private System.Windows.Forms.ComboBox comboBoxClass;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxNumber;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonClear;
