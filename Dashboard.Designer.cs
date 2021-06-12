@@ -109,6 +109,7 @@ namespace student_app
             this.listBoxStudent.Name = "listBoxStudent";
             this.listBoxStudent.Size = new System.Drawing.Size(248, 429);
             this.listBoxStudent.TabIndex = 0;
+            this.listBoxStudent.SelectedIndexChanged += new System.EventHandler(this.listBoxStudent_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -172,6 +173,7 @@ namespace student_app
             this.buttonDelstudent.TabIndex = 2;
             this.buttonDelstudent.Text = "Delete Student";
             this.buttonDelstudent.UseVisualStyleBackColor = true;
+            this.buttonDelstudent.Click += new System.EventHandler(this.buttonDelstudent_Click);
             // 
             // label4
             // 
@@ -227,6 +229,15 @@ namespace student_app
             // comboBoxClass
             // 
             this.comboBoxClass.FormattingEnabled = true;
+            this.comboBoxClass.Items.AddRange(new object[] {
+            "101",
+            "102",
+            "103",
+            "104",
+            "105",
+            "106",
+            "107",
+            "108"});
             this.comboBoxClass.Location = new System.Drawing.Point(323, 146);
             this.comboBoxClass.Name = "comboBoxClass";
             this.comboBoxClass.Size = new System.Drawing.Size(217, 33);
@@ -240,6 +251,7 @@ namespace student_app
             this.buttonClear.TabIndex = 2;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // Dashboard
             // 
@@ -250,6 +262,7 @@ namespace student_app
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageStudents.ResumeLayout(false);
             this.tabPageStudents.PerformLayout();

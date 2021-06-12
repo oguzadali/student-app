@@ -75,5 +75,84 @@ namespace student_app
             c += DateTime.Today.ToShortDateString();
             return c;
         }
+
+        private void listBoxStudent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label1.Visible = true;
+            label2.Visible = true;
+            label3.Visible = true;
+
+            string selected =(string)listBoxStudent.SelectedItem;
+            string[] allStudentFiles = Directory.GetFiles("students");
+
+            foreach (var item in allStudentFiles)
+            {
+                string[] lines = File.ReadAllLines(item);
+                if (lines[0]+" "+lines[1]==selected)
+                {
+                    labelName.Text = lines[0];
+                    labelNumber.Text = lines[1];
+                    labelClass.Text = lines[2];
+                    break;
+                }
+            }
+        }
+
+        private void buttonDelstudent_Click(object sender, EventArgs e)
+        {
+            if (listBoxStudent.SelectedItem==null)
+            {
+                MessageBox.Show("Error");
+            }
+            else
+            {
+                string selected = (string)listBoxStudent.SelectedItem;
+                string[] allStudentFiles = Directory.GetFiles("students");
+
+                foreach (var item in allStudentFiles)
+                {
+                    string[] lines = File.ReadAllLines(item);
+                    if (lines[0] + " " + lines[1] == selected)
+                    {
+                        listBoxStudent.Items.Remove(selected);
+                        File.Delete(item);
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            labelName.Text = "";
+            labelNumber.Text = "";
+            labelClass.Text = "";
+
+            string[] allStudents = Directory.GetFiles("students");
+            foreach (var item in allStudents)
+            {
+                string[] lines = File.ReadAllLines(item);
+                string name = lines[0];
+                string numbr = lines[1];
+                listBoxStudent.Items.Add(name + " " + numbr);
+                //string claSS = lines[2];
+                
+
+            }
+
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            textBoxName.Clear();
+            textBoxNumber.Clear();
+            comboBoxClass.Text = "";
+
+
+        }
     }
 }
